@@ -20,4 +20,8 @@ Este proyecto se compone de los siguientes directorios y archivos:
 
 **07_Parciales:** Contiene proyectos utilizandos en parciles (Sin el enunciado)
 
+## Recursos
+
 **[Consola.java](https://github.com/ZetLink/EDP2-Taller/blob/main/Consola.java):** Proporciona métodos que permiten leer distintos tipos de datos (como cadenas, enteros, números flotantes, y caracteres) y realizar otras tareas comunes en la consola, como imprimir menús formateados o mensajes en colores específicos.
+
+**[Java 8u202](https://www.oracle.com/ar/java/technologies/javase/javase8-archive-downloads.html):** Version de java utilizada para ejecutar los proyectos.
