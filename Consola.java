@@ -1,6 +1,5 @@
 package utilidades;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Consola {
@@ -173,29 +172,48 @@ public class Consola {
     }
     
     /**
-    * Imprime un menú formateado en la consola.
-    *
-    * Recibe un arreglo de cadenas que representan las opciones del menú y un título personalizado.
-    * El menú se presenta con el título centrado, opciones alineadas a la izquierda, y bordes decorativos utilizando el caracter '='.
-    *
-    * @param opciones Un arreglo de cadenas que representan las opciones del menú.
-    * @param titulo El título que se mostrará en la cabecera del menú.
-    */
+     * Imprime un menú con un título centrado y opciones alineadas.
+     * 
+     * @param opciones Array de opciones que se mostrarán en el menú.
+     * @param titulo   Título que se mostrará en la parte superior del menú.
+     */
     public static void imprimirMenu(String[] opciones, String titulo) {
-        int maxLongitud = Arrays.stream(opciones)
-                                .mapToInt(String::length)
-                                .max()
-                                .orElse(0);
+        int maxLongitud = 0;
+        for (String opcion : opciones) {
+            if (opcion.length() > maxLongitud) {
+                maxLongitud = opcion.length();
+            }
+        }
         int longitudTitulo = titulo.length();
         int espaciosIzquierda = (maxLongitud - longitudTitulo) / 2;
         int espaciosDerecha = maxLongitud - longitudTitulo - espaciosIzquierda;
-        System.out.println("=".repeat(maxLongitud + 4));
+        String lineaSeparacion = repeat("=", maxLongitud + 4);
+
+        System.out.println(lineaSeparacion);
         System.out.printf("| %" + espaciosIzquierda + "s%s%" + espaciosDerecha + "s |%n", "", titulo, "");
-        System.out.println("=".repeat(maxLongitud + 4));
+        System.out.println(lineaSeparacion);
         for (String opcion : opciones) {
             System.out.printf("| %-" + maxLongitud + "s |%n", opcion);
         }
-        System.out.println("=".repeat(maxLongitud + 4));
+        System.out.println(lineaSeparacion);
+    }
+
+    /**
+     * Repite una cadena un número especificado de veces.
+     * 
+     * @param s     La cadena a repetir.
+     * @param times El número de veces que se repetirá la cadena.
+     * @return Una nueva cadena que consiste en la cadena original repetida el número de veces especificado.
+     */
+    public static String repeat(String s, int times) {
+        if (s == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < times; i++) {
+            sb.append(s);
+        }
+        return sb.toString();
     }
     
     /**
